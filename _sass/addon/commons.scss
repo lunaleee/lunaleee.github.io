@@ -703,7 +703,7 @@ $btn-mb: 0.5rem;
   left: 0;
   height: 100%;
   overflow-y: auto;
-  width: $sidebar-width;
+  width: 260px;
   z-index: 99;
   background: var(--sidebar-bg);
   border-right: 1px solid var(--sidebar-border-color);
@@ -922,7 +922,7 @@ $btn-mb: 0.5rem;
 
 #topbar-wrapper {
   height: $topbar-height;
-  background-color: var(--topbar-bg);
+	background-color: var(--topbar-bg);
 }
 
 #topbar {
