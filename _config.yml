@@ -14,9 +14,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: LUNA Lee # the main title
+title: LUNA Blog # the main title
 
-tagline: AI Software Engineer # it will display as the sub-title
+tagline: AI Engineer LunaLee's Log. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   LUNA's Blog.
