@@ -715,7 +715,11 @@ $btn-mb: 0.5rem;
   overflow-y: auto;
   width: 260px;
   z-index: 99;
-  background: var(--sidebar-bg);
+  // background: var(--sidebar-bg);
+  background: var(--sidebar-bg-img);
+  background-size: 180%;
+  background-position: bottom;
+
   border-right: 1px solid var(--sidebar-border-color);
   font-family:  'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
 
