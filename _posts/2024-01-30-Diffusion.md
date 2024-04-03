@@ -32,14 +32,14 @@ Noise를 단계별로 추가하면 현재 step과 다음 step을 비교하여 �
 
 앞서 이야기했듯 Diffusion process는 두단계에 거쳐 진행되는데, 첫번째는 바로 Forward Process $q$ 이다. 데이터 분포에서 샘플링된 데이터 포인트 $x_0$가 주어지면 여기에 <mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>$T$ step에 나누어 소량의 Gaussian noise(fixed)를 더해가는 과정</span></mark>이다. 더해지는 Gaussian noise의 크기는 사전에 정의된다($\beta_t$). Foward Process의 마지막 스텝이 끝나면, 데이터 포인트는 완전한 noise image가 된다. 
 
-![Diffusion_2](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/54aa5d97-1a96-46dc-9117-6f759b11b623){: width="900px"}
+![Diffusion_2](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/54aa5d97-1a96-46dc-9117-6f759b11b623){: width="700px"}
 <br/><br/><br/>
 
 ## Reverse process
 
 위의 과정을 반대로 진행할 수 있다면 Gaussian Noise에서 실제 sample을 다시 생성할 수 있다. Reverse process $p$는 noise image  $x_T$로 부터 원본 이미지 $x_0$를 복원하는 과정이다. 여러 스텝에 나누어 점진적으로 noise를 제거하고, 이 과정에서 noise를 제거한 각 step의 이미지는 forward process의 이미지와 같아야한다는 방식으로 학습을 진행한다. 여기서 Noise를 제거하는 <mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>조건부확률을 근사하는 모델($p_{\theta}$)을 학습한다</span></mark>(뒤에서 추가적인 설명). 각 시점 별 평균과 분산을 모델이 예측하도록 해야한다.
 
-![Diffusion_3](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/83808f2a-5d3b-40fc-930b-9cfd9cb3e855){: width="900px"}
+![Diffusion_3](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/83808f2a-5d3b-40fc-930b-9cfd9cb3e855){: width="700px"}
 <br/><br/>
 
 정리하자면 Forward Process에서는 고정된 Gaussian noise를 단계별로 더하고, Reverse process에서는 학습된 모델에서 추정된 noise를 단계별로 제거하여 이미지를 생성한다.
@@ -83,7 +83,7 @@ VAE와 Diffusion의 구조적인 차이를 비교해보면 아래 그림과 같�
 먼저 VAE는 다음과 같은 Loss Function을 가지고 있다. VAE Loss fuction의 유도 과정은 역시 이전 글에서 정리했으니 참고해보자. VAE의 Loss는 Regularization term과 Reconstruction term으로 구분된다. 
 <br/><br/><br/>
 
-![Diffusion_6](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/f9d2b913-4617-4cf2-9b2c-9c265a90b151){: width="900px"}
+![Diffusion_6](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/f9d2b913-4617-4cf2-9b2c-9c265a90b151){: width="800px"}
 
 Diffusion Loss 역시 비슷한 구조이다. VAE와 유사하게 Regularization term과 Reconstruction term을 가지고 있다. 
 
@@ -92,7 +92,7 @@ Diffusion Loss 역시 비슷한 구조이다. VAE와 유사하게 Regularization
 
 Denoising Process term을 자세히 살펴보면, Forward process를 나타내는 conditional gaussian 분포$(q(-))$와, Reverse process를 나타내는 conditional gaussian 분포$(P_{\theta}(-))$간의 KL Divergence를 구하는 문제이다. 결국 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>Reverse process$(P_{\theta})$는 Forward process$(q)$를 최대한 approximation하도록 학습</span></mark>**되는 것이다.
 
-![Diffusion_7](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/f0242d91-e5fe-4ed4-8012-a54d840b1479){: width="500px"}
+![Diffusion_7](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/f0242d91-e5fe-4ed4-8012-a54d840b1479){: width="400px"}
 
 VAE 식을 유도하는 과정에서 변형을 통해 위와 같은 식**($Loss_{Diffusion}$)**을 유도할 수 있는데, 해당 과정을 유도하는 과정은 생략하도록 하겠다. 이 과정은 [Blue collar Developer 블로그](https://developers-shack.tistory.com/8)에 자세히 유도되어 있으니 궁금하다면 참고해보면 좋을 것 같다.
 <br/><br/><br/><br/>
@@ -178,12 +178,12 @@ $$
 위의 식에서 $\alpha$는 $\beta$를 통해 계산할 수 있는 노이즈의 크기를 나타내는 값이라 알고 있는 값이고, $x_0$ 또한 알고 있는 값이므로 해당 식에서 결국 모르는 값, 즉 학습해야할 것은 $\epsilon$이 된다.
 <br/><br/>
 
-![Diffusion_12](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/553ebdb9-3479-41d3-8541-70d4d3a799cb){: width="700px"}
+![Diffusion_12](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/553ebdb9-3479-41d3-8541-70d4d3a799cb){: width="650px"}
 
 이렇게 reparameterization으로 풀어낸 $x_0$를 위의 수식 (1)에 대입하면 수식 (2)와 같이 정리할 수 있다. 수식 (2)에 따르면, 학습해야하는 mean function은 주어진 시점에 파란색 밑줄 부분에 해당하는 식을 예측해야함을 알 수 있다. 해당 식에서 남은 예측 대상은 noise $\epsilon$ 뿐인 점을 고려하여, $\epsilon$에 $\theta$를 부여(학습 파라미터)하여 식을 정리하면 수식 (3)을 얻을 수 있다. 
 <br/><br/>
 
-![Diffusion_13](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/4a0d7797-2ac5-46f5-a221-9095ac30c223){: width="800px"}
+![Diffusion_13](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/4a0d7797-2ac5-46f5-a221-9095ac30c223){: width="750px"}
 
 여기서 수식 (2)와 수식 (3)을 조합하면 수식 (4)와 같은 새로운 목적식이 유도된다. 수식 (4)를 살펴보면, 결국 DDPM model($\epsilon_\theta$)이 학습해야 할 것은 주어진 t시점의 gaussian noise($\epsilon$) 가 된다. 이처럼 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>각 시점의 다양한 scale의 gaussian noise를 예측해, denoising에 활용</span></mark>**하고자 하는 것이 DDPM의 목적이라고 볼 수있다.
 <br/><br/>
@@ -214,10 +214,7 @@ _이미지 출처:https://arxiv.org/abs/2112.07804_
 
 **Reference**
 
-[1] Lil’Log: [https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)
-
-[2] 고려대학교 산업경영공학 DSBA 연구실: [https://www.youtube.com/watch?v=_JQSMhqXw-4](https://www.youtube.com/watch?v=_JQSMhqXw-4)
-
-[3] xoft: [https://xoft.tistory.com/32](https://xoft.tistory.com/32)
-
+[1] Lil’Log: [https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)<br/>
+[2] 고려대학교 산업경영공학 DSBA 연구실: [https://www.youtube.com/watch?v=_JQSMhqXw-4](https://www.youtube.com/watch?v=_JQSMhqXw-4)<br/>
+[3] xoft: [https://xoft.tistory.com/32](https://xoft.tistory.com/32)<br/>
 [4] DDPM(paper): [https://arxiv.org/abs/2006.11239](https://arxiv.org/abs/2006.11239)

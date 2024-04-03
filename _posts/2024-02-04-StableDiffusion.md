@@ -2,7 +2,7 @@
 title: "[논문 리뷰] High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion)"
 author: lunalee
 date: 2024-02-04 19:32:29 +0700
-categories: [AI, Study]
+categories: [AI, Paper Review]
 tags: [Image, Generation, Diffusion]
 pin: true
 math: true
@@ -17,7 +17,7 @@ Stable Diffusion이라 불리는 이 논문은 2022년 발표된 Image Generatio
 - Paper: [https://arxiv.org/abs/2112.10752](https://arxiv.org/abs/2112.10752)
 - Git: [https://github.com/CompVis/latent-diffusion](https://github.com/CompVis/latent-diffusion)
 - Project Page: [https://stability.ai/news/stable-diffusion-3](https://stability.ai/news/stable-diffusion-3)
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 # Introduction
 
@@ -35,9 +35,9 @@ Image Generation은 일반적으로 computational cost가 굉장이 높은 task�
 _< 기존의 Image Synthesis Model 비교 >_
 <br/><br/><br/>
 
-DM은 likelihood-based 모델에 속하여, 모델의 mode-covering** 동작으로 인해 눈에 띄지 않는 detail을 모델링하는데 과도한 용량(컴퓨팅 리소스)을 소비하기 쉽다. 초기 denoising 단계에서 undersampling을 통해 이 문제를 해결하고자 했지만, 고차원 RGB 이미지 공간에서 반복적인 gradient computation을 수행하기 때문에  여전히 막대한 시간과 메모리가 소요된다.  저자는 접근성을 높이고 리소스 소비를 줄이기 위해, training과 sampling 모두에 대한 계산 복잡성을 줄이기 위한 방법의 중요성을 강조했다.
+DM은 likelihood-based 모델에 속하여, 모델의 <mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>mode-covering**</span></mark> 동작으로 인해 눈에 띄지 않는 detail을 모델링하는데 과도한 용량(컴퓨팅 리소스)을 소비하기 쉽다. 초기 denoising 단계에서 undersampling을 통해 이 문제를 해결하고자 했지만, 고차원 RGB 이미지 공간에서 반복적인 gradient computation을 수행하기 때문에  여전히 막대한 시간과 메모리가 소요된다.  저자는 접근성을 높이고 리소스 소비를 줄이기 위해, training과 sampling 모두에 대한 계산 복잡성을 줄이기 위한 방법의 중요성을 강조했다.
 
-> **Mode-covering vs Mode collapse****
+> **<mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>Mode-covering vs Mode collapse**</span></mark>**
 GAN의 경우, Generator가 샘플 전체의 Moda를 커버하지 않더라도, 이에 대한 panalty가 존재하지 않는다. 따라서 mode collapse가 빈번하게 발생한다.
 반면 Likelihood-based 모델인 VAE, Diffusion의 경우에는 posterior z∼q(z|x)를 가지고 p(x|z)의 conditional generation에 대한 likelihood를 Maximize한다. 이 과정에서 데이터 포인트를 복원해야한다는 제약이 발생하고, 모델은 Modality를 모두 커버하는 시도가 발생하게 된다.
 <br>참조: [https://revsic.github.io/blog/coverage/](https://revsic.github.io/blog/coverage/)
@@ -50,13 +50,13 @@ GAN의 경우, Generator가 샘플 전체의 Moda를 커버하지 않더라도, 
 
 Stable Diffuion의 단계는 크게 두단계로 나눠진다.
 
-1. **Perceptual Compression**: 데이터 공간과 **Perceptual 측면에서 동등한 저차원 (따라서 효율적인) 공간을 학습**하는 Auto Encoder
+1. **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>Perceptual Compression</span></mark>**: 데이터 공간과 **Perceptual 측면에서 동등한 저차원 (따라서 효율적인) 공간을 학습**하는 Auto Encoder
 인코딩 단계를 한 번만 학습하면 되므로 이를 여러 DM 학습에 재사용하거나 완전히 다른 작업에 사용할 수 있는 장점이 있다. 
-2.  **Semantic compression:** 실제 Generative model이 데이터의 **의미적, 개념적 구성을 학습**
+2.  **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>Semantic compression</span></mark>**: 실제 Generative model이 데이터의 **의미적, 개념적 구성을 학습**
 <br/><br/>
 
 해당 방법은 댜양한 task에서 경쟁력있는 성능을 달성할 뿐 아니라 픽셀 기반 Diffusion 접근 방식에 비해 inference cost도 절감된다. 뿐만 아니라 high-resolution 또는 megapixel image 생성에도 적용될 수 있으며, multi-modal training도 가능한 장점이 있다.
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
 # Method
 
@@ -65,16 +65,16 @@ Stable Diffuion의 단계는 크게 두단계로 나눠진다.
 Diffusion Model의 배경 지식은 해당 글에서는 다루지 않는다. Diffusion Process의 배경 지식이 필요하다면 블로그 포스팅을 참고하자.
 [[Diffusion 정리]](https://lunaleee.github.io/posts/Diffusion/)
 
-![StableDiffusion_4](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/a28323d3-66b8-4665-bbcb-b4b5d6c99a29){: width="600px"}
+![StableDiffusion_4](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/3c25895b-ada2-4df7-bf99-1440d7971cc5){: width="600px"}
 
 이전에는 Diffusion model의 계산 복잡성을 줄이기 위해 Loss term을 적게 sampling하는 방법을 사용했지만, 이미지 pixel을 직접 예측하는 방법은 여전히 계산 비용이 큰 문제가 있다.
 
-본 논문에서는 고해상도 이미지 합성을 위해 **이미지 압축 단계**를 generative learning 단계에서 분리했다. Autoencoding model을 사용하여 이미지와 지각적으로 동일한 공간을 학습하지만 계산 복잡성은 줄어든다. 해당 방법은 다음과 같은 장점을 가지고 있다.
+본 논문에서는 고해상도 이미지 합성을 위해 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>이미지 압축 단계</span></mark>**를 generative learning 단계에서 분리했다. Autoencoding model을 사용하여 이미지와 지각적으로 동일한 공간을 학습하지만 계산 복잡성은 줄어든다. 해당 방법은 다음과 같은 장점을 가지고 있다.
 
 1. sampling이 저차원 공간에서 수행되기 때문에 계산 효율적이다.
 2. UNet 구조에서 학습된 inductive bias를 활용하여 데이터의 spatial structure(공간 구조)를 학습하는데 효과적이므로 이미지 품질을 저하시키는 압축을 완화할 수 있다.
 3. Latent space를 활용하여 여러 모델을 학습할 수 있고 down stream task에도 활용할 수 있다.
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
 ## 1. Perceptual Image Compression
 
@@ -91,8 +91,9 @@ Diffusion Model의 배경 지식은 해당 글에서는 다루지 않는다. Dif
   Loss function은 다음과 같이 구성된다. 
   <br/>
   VQ-GAN에서는 이전 논문인 VQ-VAE와 다르게 reconstruction loss로 **Perceptual Loss**를 사용한다. MSE는 평균 제곱오차로, 샘플이 픽셀별로 평균에서 크게 벗어나지 않도록하는 것이 목적이므로 구조적인 부분은 유지하되 이미지가 blury한 문제가 있다. 따라서 VQ-GAN에서는 이 Loss term을 perceptual loss로 변경하고 local realism을 강화하였다. 
-  - Perceptual loss는 VGG 16 과 같은 feature extractor를 따로 사용하여 중간 layer에서 feature를 추출한 뒤(원본 이미지 $x$, 생성 이미지 $\hat x$) feature map 사이에서 loss를 구하는 방법이다. feature사이의 loss를 구함으로 지역적인 특성을 고려할 수 있는 장점이 있다.
-  <br/>
+  <br/><br/>
+  Perceptual loss는 VGG 16 과 같은 feature extractor를 따로 사용하여 중간 layer에서 feature를 추출한 뒤(원본 이미지 $x$, 생성 이미지 $\hat x$) feature map 사이에서 loss를 구하는 방법이다. feature사이의 loss를 구함으로 지역적인 특성을 고려할 수 있는 장점이 있다.
+  <br/><br/>
   Discriminator 학습을 위해서는 **Patch-wise Adversarial Loss**를 적용한다.
   <hr style="border: solid 0.5px lightgrey;">
   </div>
@@ -108,13 +109,13 @@ Latent space의 분산이 커지는 것을 막기 위해서 두가지 **Regulari
 <br/><br/>
 
 뒤따르는 Diffusion model은 latent space z = E(x)의 2차원 구조에서 작동하도록 설계되었기 때문에,  기존에 latent space를 임의의 1D ordering으로 압축하여 z의 고유한 구조를 무시했던 이전 연구들과 달리 세부사항을 더 잘 보존한다.
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
 ## 2. Latent Diffusion Models
 
 ![StableDiffusion_8](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/9f4e1356-088d-480a-8d3b-1ff323f9aee1){: width="600px"}
 
-Diffusion model은 noise 이미지에서 **정규 분포 변수를 점진적으로 denoising** 하여 데이터 분포 p(x)를 학습하도록 설계된 모델이다. 이 과정은 길이 T의 고정된 Markov chain의 reverse process 학습에 해당한다. (해당 과정에 대한 내용은 아래 게시물을 참고)
+Diffusion model은 noise 이미지에서 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>정규 분포 변수를 점진적으로 denoising</span></mark>** 하여 데이터 분포 p(x)를 학습하도록 설계된 모델이다. 이 과정은 길이 T의 고정된 Markov chain의 reverse process 학습에 해당한다. (해당 과정에 대한 내용은 아래 게시물을 참고)
 <br/><br/><br/><br/>
 
 ![StableDiffusion_9](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/8c82e0b1-4778-4ff0-9ebe-696ec2511ecc){: width="900px"}
@@ -125,7 +126,7 @@ LDM Architecture, Pixel space라고 되어있는 분홍색 박스 부분이 압�
 Perceptual 압축 모델($\mathcal{E, D}$)을 통해 효율적인 저차원 Latent space를 사용할 수 있게 되었다. 고차원 pixel space와 비교하여 해당 공간은 (i)데이터에서 중요한, **의미가 있는 bit에 집중**하고 (ii)**더 낮은 차원에서 많은 계산**을 효과적으로 수행할 수 있기 때문에 lilkelihood 기반 generation 모델에 적합하다. 
 <br/><br/>
 
-이전의 작업들은 고도로 압축된 discrete latent space에서 transformer 모델을 사용했던 것과는 달리, 본 논문에서는 **image-specific inductive bias**를 활용할 수 있다. 그 이유는 아래와 같다.
+이전의 작업들은 고도로 압축된 discrete latent space에서 transformer 모델을 사용했던 것과는 달리, 본 논문에서는 **<mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>image-specific inductive bias</span></mark>**를 활용할 수 있다. 그 이유는 아래와 같다.
 
 1. **2D convolution 기반 UNet 구조**를 활용한다.
 2. Reweighted bound를 사용하여 Objective function을 지각적으로 더 연관있는 bit에 집중하도록 한다.
@@ -133,15 +134,15 @@ Perceptual 압축 모델($\mathcal{E, D}$)을 통해 효율적인 저차원 Late
     
     ![StableDiffusion_10](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/7ce39cda-40dd-4997-b1f7-83e000e71e3c){: width="600px"}
     
-
-LDM 모델의 neural  backbone $\epsilon_{\theta}(\circ, t)$ 은 **time-conditional U-Net**으로 구현된다(위의 architecture 그림 참조). Forward process는 고정되어 있기 때문에, $z_t$는 학습 도중  $\mathcal{E}$를 통해 얻을 수 있고, $p(z)$의 샘플을 $\mathcal{D}$에 통과시켜 image space로 디코딩할 수 있다.
-<br/><br/><br/><br/>
+<br/><br/>
+LDM 모델의 neural  backbone $\epsilon_{\theta}(\circ, t)$ 은 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>time-conditional U-Net</span></mark>**으로 구현된다(위의 architecture 그림 참조). Forward process는 고정되어 있기 때문에, $z_t$는 학습 도중  $\mathcal{E}$를 통해 얻을 수 있고, $p(z)$의 샘플을 $\mathcal{D}$에 통과시켜 image space로 디코딩할 수 있다.
+<br/><br/><br/><br/><br/>
 
 ## 3. Conditioning Mechanisms
 
 LDM의 Conditional denoising autoencoder $\epsilon_\theta(z_\theta, t, y)$를 이용하여 $p(z|y)$의 조건부 확률을 모델링 할 수 있다. 텍스트, semantic map과 같은 입력 y를 통해 합성 process를 제어하는 방법을 제시한다. <br/><br/>
 본 논문에서는 LDM을 보다 유연한 conditional image generator로 바꾸기 위하여, 다양한 input modality에 효과적으로 동작하는 **cross-attention mechanism**을 UNet에 적용한다. 
-<br/><br/>
+<br/><br/><br/>
 
 먼저, 다양한 modality의 y를 pre-process하기 위하여 domain specific encoder $\tau_\theta$를 추가한다. 이 encoder는 y를 중간 representation $\tau_\theta(y) \in ℝ^{M\times d}$로 투영하고, cross-attention layer를 사용하여 UNet의 중간 레이어에 매핑한다. Cross-attention layer는 아래와 같이 구현된다.
 
@@ -176,7 +177,7 @@ LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel �
 ![StableDiffusion_14](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/75e0b0e0-24e9-497e-8c02-d69256774c9e){: width="800px"}
 
 위의 그래프는 ImageNet으로 class 조건부 모델을 2M step 학습할 때 샘플 품질에 대한 그래프이다. 위의 그래프를 통해 downsampling factor가 너무 작으면 학습이 느려지고, f 값이 너무 크면 비교적 적은 학습 단계 후에 이미지 품질이 정체되는 것을 알 수 있다. 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 ## 2. Image Generation with Latent Diffusion
 
@@ -185,25 +186,26 @@ LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel �
 ![StableDiffusion_15](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/11d65983-e1bb-4339-8796-2a5c2a2d3b68){: width="600px"}
 
 ![StableDiffusion_16](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/ab073e82-bac2-4a09-803f-00b73ca1f734){: width="1100px"}
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 ## 3. Conditional Latent Diffusion
 
 다음은 LAION 데이터셋에 대해 학습한 Text-to-Image task 결과 이미지이다.
 
 ![StableDiffusion_17](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/3c987500-621b-4f21-9de9-6069d303d61a){: width="1100px"}
+<br/><br/>
 
 추가적으로 메가 픽셀 이미지에 대한 semantic synthesis 작업에 LDM을 적용했다. $256^2$으로 학습된 모델을 사용하여 고화질 이미지(512 X 1024)를 생성하였다. 
 
 ![StableDiffusion_18](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/4e8b826f-7417-4fc5-801d-7bdfc5cc8c44){: width="600px"}
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 ## 4. Super-Resolution with Latent Diffusion
 
 ImageNet-Val 데이터셋에 대하여  64→256 super-resolution을 수행하였다. 
 
 ![StableDiffusion_19](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/ac5cf322-796d-4d6e-90eb-b9dbf2d78275){: width="500px"}
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 ## 5. Inpainting with Latent Diffusion
 
