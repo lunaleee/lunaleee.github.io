@@ -4,7 +4,7 @@ author: lunalee
 date: 2024-02-04 19:32:29 +0700
 categories: [AI, Paper Review]
 tags: [Image, Generation, Diffusion]
-pin: true
+pin: false
 math: true
 ---
 
