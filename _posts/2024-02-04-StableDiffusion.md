@@ -170,7 +170,7 @@ Image-conditioning pairs를 기반으로 아래의 수식을 통해 조건부 LD
 LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel 기반 Diffusion 모델과의 비교하여 모델의 이점을 분석하였다. VQ regularized latent spaces에서 학습된 LDM은 reconstruction 성능이 다른 모델보다 떨어지더라도 생성 이미지의 품질이 다른 모델들과 비교하여 우수하다는 것을 발견했다고 한다. 
 <br/><br/><br/>
 
-## 1. On Perceptual Compression Tradeoffs
+### 1. On Perceptual Compression Tradeoffs
 
 이 섹션에서는 압축 모델의 다양한 downsampling factor ($f=2^m$ ) $f \in$ {1, 2, 4, 8, 1, 32} (LDM-f라고 정함)에 대한 LDM의 동작에 대해 조사했다. 
 
@@ -179,7 +179,7 @@ LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel �
 위의 그래프는 ImageNet으로 class 조건부 모델을 2M step 학습할 때 샘플 품질에 대한 그래프이다. 위의 그래프를 통해 downsampling factor가 너무 작으면 학습이 느려지고, f 값이 너무 크면 비교적 적은 학습 단계 후에 이미지 품질이 정체되는 것을 알 수 있다. 
 <br/><br/><br/><br/>
 
-## 2. Image Generation with Latent Diffusion
+### 2. Image Generation with Latent Diffusion
 
 해당 섹션에서는 CelebA-HQ, FFHQ, LSUN-Churches, LSUN-Bedrooms 데이터셋을 활용하여 unconditional model을 학습시켜 생성 이미지 샘플 품질과 data manifold에 대한 coverage를 조사했다. 
 
@@ -188,7 +188,7 @@ LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel �
 ![StableDiffusion_16](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/ab073e82-bac2-4a09-803f-00b73ca1f734){: width="1100px"}
 <br/><br/><br/><br/>
 
-## 3. Conditional Latent Diffusion
+### 3. Conditional Latent Diffusion
 
 다음은 LAION 데이터셋에 대해 학습한 Text-to-Image task 결과 이미지이다.
 
@@ -200,14 +200,14 @@ LDM은 다양한 이미지 합성 방법을 제공하지만, 그 전에 Pixel �
 ![StableDiffusion_18](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/4e8b826f-7417-4fc5-801d-7bdfc5cc8c44){: width="600px"}
 <br/><br/><br/><br/>
 
-## 4. Super-Resolution with Latent Diffusion
+### 4. Super-Resolution with Latent Diffusion
 
 ImageNet-Val 데이터셋에 대하여  64→256 super-resolution을 수행하였다. 
 
 ![StableDiffusion_19](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/ac5cf322-796d-4d6e-90eb-b9dbf2d78275){: width="500px"}
 <br/><br/><br/><br/>
 
-## 5. Inpainting with Latent Diffusion
+### 5. Inpainting with Latent Diffusion
 
 Inpatinting은 이미지의 일부가 손상되었거나 이미지 내에 존재하는 원하지 않는 컨텐츠를 대체하여 새로운 컨텐츠로 채우는 작업을 의미한다. 원하지 않는 부분을 mask로 설정하여해당 부분을 채우도록 학습할 수 있다. 아래 그림은 Inpainting 학습에 대한 결과 이미지이다.
 

@@ -60,9 +60,10 @@ body {
         $factor: 0.23rem;
       }
 
-      font-size: 1rem + (5 - $i) * $factor;
+      font-size: 1.25rem + (5 - $i) * $factor;
     } @else {
       font-size: 1rem;
+      font-family: 'SBAggroB';
     }
   }
 }
