@@ -2,7 +2,7 @@
 title: "Generative model 기초 3. Diffusion 정리"
 author: lunalee
 date: 2024-01-30 19:12:42 +0700
-categories: [AI, Study]
+categories: [AI, Concept Note]
 tags: [Image, Generation, Diffusion]
 pin: false
 math: true
