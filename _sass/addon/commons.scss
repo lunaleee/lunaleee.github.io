@@ -27,7 +27,7 @@ html {
 }
 
 @font-face {
-    font-family: 'SBAggroB';
+    font-family: SBAggroB;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -39,7 +39,7 @@ body {
     env(safe-area-inset-bottom) env(safe-area-inset-left);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
-  font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+  font-family: AppleSDGothicNeo, 'Noto Sans KR', sans-serif;
 }
 
 /* --- Typography --- */
@@ -58,15 +58,14 @@ body {
 
       @if $i == 1 {
         $factor: 0.23rem;
-      }
-      @if $i == 1 {
+      } @if $i == 1 {
         font-size: 1.1rem + (5 - $i) * $factor;
       } @else {
         font-size: 1.20rem + (5 - $i) * $factor;
       }
     } @else {
       font-size: 1rem;
-      font-family: 'SBAggroB';
+      font-family: SBAggroB, sans-serif;
     }
   }
 }
@@ -419,7 +418,7 @@ main {
   font-size: 15px;
   margin-top: 2rem;
   overflow-wrap: break-word;
-  font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+  font-family: AppleSDGothicNeo, 'Noto Sans KR', sans-serif;
 
   a {
     &.popup {
@@ -723,7 +722,8 @@ $btn-mb: 0.5rem;
   background-position: top;
 
   border-right: 1px solid var(--sidebar-border-color);
-  font-family:  'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+  font-family: AppleSDGothicNeo, 'Noto Sans KR', sans-serif;
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
@@ -769,7 +769,7 @@ $btn-mb: 0.5rem;
   }
 
   .site-title {
-    font-family: SBAggroB;
+    font-family: SBAggroB, sans-serif;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 1.2;
