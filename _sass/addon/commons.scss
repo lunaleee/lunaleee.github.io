@@ -61,8 +61,7 @@ body {
       }
       @if $i == 1 {
         font-size: 1.1rem + (5 - $i) * $factor;
-      }
-      @else {
+      } @else {
         font-size: 1.20rem + (5 - $i) * $factor;
       }
     } @else {
@@ -390,7 +389,6 @@ main {
         @include align-center;
       }
     }
-    /* font-size: 15px; */
   }
 
   .categories,
@@ -720,14 +718,12 @@ $btn-mb: 0.5rem;
   overflow-y: auto;
   width: 260px;
   z-index: 99;
-  // background: var(--sidebar-bg);
   background: var(--sidebar-bg-img);
   background-size: 200%;
   background-position: top;
 
   border-right: 1px solid var(--sidebar-border-color);
   font-family:  'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
-
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
@@ -773,7 +769,7 @@ $btn-mb: 0.5rem;
   }
 
   .site-title {
-    font-family: 'SBAggroB';
+    font-family: SBAggroB;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 1.2;
