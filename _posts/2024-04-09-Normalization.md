@@ -142,7 +142,7 @@ $$
 $$
 
 $$
-\sigma_C(x) = \sqrt{\frac{1}{CHW} \sum^C_{c=1} \sum^H_{h=1} \sum^W_{w=1} (x_{nchw} - \mu(x))^2 \;+\; \epsilon }
+\sigma_N(x) = \sqrt{\frac{1}{CHW} \sum^C_{c=1} \sum^H_{h=1} \sum^W_{w=1} (x_{nchw} - \mu(x))^2 \;+\; \epsilon }
 $$
 
 <br/>
