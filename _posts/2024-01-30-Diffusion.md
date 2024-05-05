@@ -212,7 +212,7 @@ _이미지 출처:https://arxiv.org/abs/2112.07804_
 
 ---
 
-**Reference**
+#### Reference
 
 [1] Lil’Log: [https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)<br/>
 [2] 고려대학교 산업경영공학 DSBA 연구실: [https://www.youtube.com/watch?v=_JQSMhqXw-4](https://www.youtube.com/watch?v=_JQSMhqXw-4)<br/>

@@ -26,7 +26,7 @@ Network의 출력은 각 feature vector의 linear combination이다. 아래의 �
 _이미지 출처: https://towardsdatascience.com/batch-norm-explained-visually-how-it-works-and-why-neural-networks-need-it-b18919692739_
 <br/><br/>
 
-아래의 그림은 **<mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>gradient descent의 관점</span></mark>**에서 noramlization을 수행하지 않았을 경우 발생하는 문제점이다. 아래와 같이 두 가지 상황에 대해 살펴보자. 첫 번째 그림과 같은 경우에는 두 feature 중 $\text{W}_2$의 scale이 $\text{W}_2$의 scale 보다 확연히 넓은 범위를 가지고 있는 것을 볼 수 있다. 이러한 경우는 SGD 관점에서 확연히 $**\text{W}_2$ 축 방향 위주로 gradient를 계산**하게 된다. 이렇게 한 차원을 중심으로 이동하게 되므로 빠르게 수렴하지 못하고 더 많은 단계를 거쳐야한다.
+아래의 그림은 **<mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>gradient descent의 관점</span></mark>**에서 noramlization을 수행하지 않았을 경우 발생하는 문제점이다. 아래와 같이 두 가지 상황에 대해 살펴보자. 첫 번째 그림과 같은 경우에는 두 feature 중 $\text{W}_2$의 scale이 $\text{W}_2$의 scale 보다 확연히 넓은 범위를 가지고 있는 것을 볼 수 있다. 이러한 경우는 SGD 관점에서 확연히 **$\text{W}_2$ 축 방향 위주로 gradient를 계산**하게 된다. 이렇게 한 차원을 중심으로 이동하게 되므로 빠르게 수렴하지 못하고 더 많은 단계를 거쳐야한다.
 
 ![Normalization_2.png](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/ff1aba20-b265-4375-8065-3d9850286d83){: width="800px"}
 
