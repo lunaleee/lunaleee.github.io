@@ -29,7 +29,7 @@ math: true
 
 ---
 
-해당 논문은 상당 부분 BLIP-2에 기반하므로 BLIP-2에 대한 사전 지식이 필요하신 분은 블로그 내의 [[BLIP-2 논문 리뷰](https://lunaleee.github.io/posts/BLIP-2/)] 글을 참고해주세요!
+해당 논문은 상당 부분 BLIP-2에 기반하므로 BLIP-2에 대한 사전 지식이 필요하신 분은 블로그 내의 [[BLIP-2 논문 리뷰](https://lunaleee.github.io/posts/blip-2/)] 글을 참고해주세요!
 <br/><br/>
 
 ![BLIP-Diffusion_1.png](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/b339e350-415b-4c50-bc8e-8b636fd165f2){: width="900px"}
@@ -57,7 +57,7 @@ BLIP-Diffusion은 pre-train된 subject representation을 통해 multimodal contr
 
 ![BLIP-Diffusion_2.png](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/b4c2200c-6c20-495d-a75f-68c128634bfa){: width="400px"}
 
-먼저 생성모델로 **Stable Diffusion** 모델(참조: [Stable Diffusion 논문 리뷰](https://lunaleee.github.io/posts/StableDiffusion/))을 사용한다. 위 그림처럼 text embedding은 CLIP에서 생성되어 전달된다. 이 때 prompt로 사용되는 subject representation과 text가 서로 잘 align 되어있는 것이 중요하다. 
+먼저 생성모델로 **Stable Diffusion** 모델(참조: [Stable Diffusion 논문 리뷰](https://lunaleee.github.io/posts/stablediffusion/))을 사용한다. 위 그림처럼 text embedding은 CLIP에서 생성되어 전달된다. 이 때 prompt로 사용되는 subject representation과 text가 서로 잘 align 되어있는 것이 중요하다. 
 
 논문에서는 vision-language pre-trained 모델인 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>BLIP-2</span></mark>**를 사용하여 high-quality **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>text-aligned visual representation</span></mark>**를 생성한다.
 <br/><br/><br/>

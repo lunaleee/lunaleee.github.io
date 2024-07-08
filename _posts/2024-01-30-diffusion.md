@@ -54,7 +54,7 @@ Forward process에서 $q(x_t|x_{t-1})$을 수행하여 $x_t$를 만들었다면,
 <mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>확률 분포 $q$에서 관측한 값으로 확률분포 $p_{\theta}$의 likelihood를 구하였을 때, likelihood값이 최대가 되는 확률분포를 찾는 Maximum Likelihood Estimation 문제.</span></mark>
 <br/><br/><br/>
 
-그럼 마찬가지로 Maximum likelihood Estimation을 수행하는 VAE와 비교해보자. ([이전 글 참조: VAE 정리](https://lunaleee.github.io/posts/VAE/))
+그럼 마찬가지로 Maximum likelihood Estimation을 수행하는 VAE와 비교해보자. ([이전 글 참조: VAE 정리](https://lunaleee.github.io/posts/vae/))
 
 VAE와 Diffusion의 구조적인 차이를 비교해보면 아래 그림과 같다. VAE는 하나의 latent variable을 추출한다. 이와 달리 Diffusion은 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>Markov chain 형식</span></mark>**으로 여러개의 latent variable을 단계적으로 생성해낸다. 여기서 두 모델의 두드러지는 차이는 latent variable의 수가 다르다는 것으로 해석해 볼 수 있다. 이러한 차이는 Loss를 구성하는데도 차이를 나타내게 된다.
 

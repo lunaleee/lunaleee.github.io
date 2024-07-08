@@ -63,7 +63,7 @@ Stable Diffuion의 단계는 크게 두단계로 나눠진다.
 ---
 
 Diffusion Model의 배경 지식은 해당 글에서는 다루지 않는다. Diffusion Process의 배경 지식이 필요하다면 블로그 포스팅을 참고하자.
-[[Diffusion 정리]](https://lunaleee.github.io/posts/Diffusion/)
+[[Diffusion 정리]](https://lunaleee.github.io/posts/diffusion/)
 
 ![StableDiffusion_4](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/3c25895b-ada2-4df7-bf99-1440d7971cc5){: width="600px"}
 
@@ -78,7 +78,7 @@ Diffusion Model의 배경 지식은 해당 글에서는 다루지 않는다. Dif
 
 ## 1. Perceptual Image Compression
 
-논문에서는 perceptual(지각) 압축 모델로 **VQ-GAN**을 사용한다([MaskGIT 리뷰](https://lunaleee.github.io/posts/MaskGIT/)에서도 살짝 다뤘었다). Perceptual loss와 patch 기반 adversarial objective의 조합으로 학습된 Auto encoder로 구성된다. 
+논문에서는 perceptual(지각) 압축 모델로 **VQ-GAN**을 사용한다([MaskGIT 리뷰](https://lunaleee.github.io/posts/maskgit/)에서도 살짝 다뤘었다). Perceptual loss와 patch 기반 adversarial objective의 조합으로 학습된 Auto encoder로 구성된다. 
 <details>
   <summary><b>VQ-GAN</b></summary>
   <div markdown="1">
