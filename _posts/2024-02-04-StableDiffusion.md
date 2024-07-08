@@ -1,5 +1,5 @@
 ---
-title: "[논문 리뷰] High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion)"
+title: "[논문 리뷰] Stable Diffusion, High-Resolution Image Synthesis with Latent Diffusion Models"
 author: lunalee
 date: 2024-02-04 19:32:29 +0700
 categories: [AI, Paper Review]
