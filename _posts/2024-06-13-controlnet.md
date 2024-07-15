@@ -1,5 +1,5 @@
 ---
-title: "[논문 리뷰] (ControlNet) Adding Conditional Control to Text-to-Image Diffusion Models"
+title: "[논문 리뷰] ControlNet, Adding Conditional Control to Text-to-Image Diffusion Models"
 author: lunalee
 date: 2024-06-13 20:12:49 +0900
 categories: [AI, Paper Review]
