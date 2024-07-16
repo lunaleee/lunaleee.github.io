@@ -56,7 +56,7 @@ ControlNet은 위의 그림과 같이 neural network block에 condition을 주�
     
 - Pre-trained neural block에 ControlNet을 추가하기 위해 block의 parameter  $\Theta$를 고정(freeze)하고, parameter $\Theta_c$를 갖는 **<mark style='background-color: var(--hl-green)'><span style='color: var(--text-color)'>trainable copy</span></mark>**로 block을 복제한다(그림 (b)).
 - trainable copy는 external conditioning vector $c$를 입력으로 받는다.
-- trainable copy는 zero convolution **layer $Z(\cdot \ ; \cdot)$를 사용한다. zero convolution은 weight와 bias가 모두 0으로 초기화된 $1 × 1$ convolution layer이다.
+- trainable copy는 zero convolution layer $Z(\cdot \ ; \cdot)$를 사용한다. zero convolution은 weight와 bias가 모두 0으로 초기화된 $1 × 1$ convolution layer이다.
 - 2개의 **<mark style='background-color: var(--hl-yellow)'><span style='color: var(--text-color)'>zero convolution</span></mark>**을 사용하는데, 각각 paremeter $\Theta_{z1}, \Theta_{z2}$를 가질 때 ControlNet은 다음과 같이 계산된다. 
 (여기서 $y_c$는 ControlNet의 출력이다)
     
