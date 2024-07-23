@@ -88,6 +88,7 @@ Diffusion Model의 배경 지식은 해당 글에서는 다루지 않는다. Dif
   <br/><br/>
   VQ-GAN에서는 이미지를 encoder로 압축하여 codebook 내의 code로 변환하여줌으로서 discretize 한다. 물론 이 과정에서 continuous한 feature를 우리가 가지고 있는 정보(code)만으로 표현하기 때문에 information loss가 발생할 수 있다(디테일 삭제, 왜곡 발생 등).
   ![StableDiffusion_6](https://github.com/cotes2020/jekyll-theme-chirpy/assets/34572874/fe7a735d-d8f6-4231-ab3f-f504d6ee7c79){: width="800px"}
+  <br/>
   Loss function은 다음과 같이 구성된다. 
   <br/>
   VQ-GAN에서는 이전 논문인 VQ-VAE와 다르게 reconstruction loss로 **Perceptual Loss**를 사용한다. MSE는 평균 제곱오차로, 샘플이 픽셀별로 평균에서 크게 벗어나지 않도록하는 것이 목적이므로 구조적인 부분은 유지하되 이미지가 blury한 문제가 있다. 따라서 VQ-GAN에서는 이 Loss term을 perceptual loss로 변경하고 local realism을 강화하였다. 
